@@ -13,4 +13,7 @@ return {
     { key = "d", bundleID = "com.googlecode.iterm2", name = "iTerm" },
     { key = "s", bundleID = "md.obsidian",           name = "Obsidian" },
   },
+
+  -- modifier + key opens the named iTerm window picker.
+  itermWindows = { key = "a" },
 }
