@@ -12,6 +12,7 @@ return {
     { key = "c", bundleID = "com.google.Chrome",    name = "Chrome" },
     { key = "d", bundleID = "com.googlecode.iterm2", name = "iTerm" },
     { key = "s", bundleID = "md.obsidian",           name = "Obsidian" },
+    { key = "x", bundleID = "com.microsoft.VSCode",  name = "VS Code" },
   },
 
   -- modifier + key opens the named iTerm window picker.

@@ -18,6 +18,7 @@ All shortcuts use the modifier set in `config.lua` (default **Ctrl+Shift**).
 | `c` | Chrome |
 | `d` | iTerm |
 | `s` | Obsidian |
+| `x` | VS Code |
 | `a` | Named iTerm windows: pick one, or type a new name to create it |
 | `r` | Reload config |
 
