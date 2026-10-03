@@ -19,7 +19,7 @@ if hs.fs.attributes(hs.configdir .. "/local.lua") then
   for k, v in pairs(safeRequire("local") or {}) do config[k] = v end
 end
 
-local modules = { "reload", "apps", "iterm_windows" }
+local modules = { "reload", "apps", "iterm_windows", "window_placement" }
 for _, name in ipairs(modules) do
   local mod = safeRequire("modules." .. name)
   if mod and mod.start then

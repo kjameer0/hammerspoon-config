@@ -34,4 +34,5 @@ To show each window's name in its title bar, turn on both **Session Name** and *
 - `config.lua`: the modifier and the table of apps (by bundle ID).
 - `modules/reload.lua`: reloads when any `.lua` file is saved. Changes under `.git/` are ignored.
 - `modules/apps.lua`: jumps to an app or cycles its windows.
+- `modules/window_placement.lua`: moves each new window of the apps listed in `config.newWindows` onto the screen under the mouse, centered or at a unit rect.
 - `modules/iterm_windows.lua`: picker for named iTerm windows. Each name is stored in the iTerm variable `user.hsName` on the window, so it lasts as long as the window does.
