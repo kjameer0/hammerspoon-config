@@ -24,6 +24,7 @@ All shortcuts use the modifier set in `config.lua` (default **Ctrl+Shift**).
 | `s` | Obsidian |
 | `x` | VS Code |
 | `a` | Named iTerm windows: pick one, or type a new name to create it |
+| `z` | Clipboard history: search recent copies, Enter pastes |
 | `r` | Reload config |
 
 Pressing an app's key when that app is already in front moves to its next window.
@@ -44,4 +45,5 @@ This needs the shell helpers from install step 4. Then `tabname build` sets the 
 - `modules/apps.lua`: jumps to an app or cycles its windows.
 - `shell/hs.sh`: shell helpers to source from your rc file (`tabname`).
 - `modules/window_placement.lua`: moves each new window of the apps listed in `config.newWindows` onto the screen under the mouse, centered or at a unit rect.
+- `modules/clipboard.lua`: clipboard history, using the bundled `Spoons/ClipboardTool.spoon` (MIT, from the official Hammerspoon Spoons repo). History is saved in Hammerspoon's settings, so it survives restarts. Copies that password managers mark as concealed are skipped. Right-click an entry to delete it.
 - `modules/iterm_windows.lua`: picker for named iTerm windows. Each name is stored in the iTerm variable `user.hsName` on the window, so it lasts as long as the window does.

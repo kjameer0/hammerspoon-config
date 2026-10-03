@@ -18,6 +18,10 @@ return {
   -- modifier + key opens the named iTerm window picker.
   itermWindows = { key = "a" },
 
+  -- modifier + key opens clipboard history. pasteOnSelect pastes the chosen
+  -- entry into the front app; false only copies it.
+  clipboard = { key = "z", historySize = 100, pasteOnSelect = true },
+
   -- Where new windows open, on the screen under the mouse. Either "center"
   -- (keeps the window's size) or a unit rect like { x=0, y=0, w=0.5, h=1 }.
   newWindows = {

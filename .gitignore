@@ -1,4 +1,5 @@
 local.lua
 Spoons/*
 !Spoons/.gitkeep
+!Spoons/ClipboardTool.spoon/
 .DS_Store
