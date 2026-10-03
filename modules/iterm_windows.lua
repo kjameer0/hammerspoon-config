@@ -46,13 +46,21 @@ local function focus(id)
     end tell]]):format(ITERM, id))
 end
 
+-- iTerm ignores AppleScript-set session names in the title, so the new
+-- window's shell sets its own title (OSC 1) and then execs the login shell.
+-- The title's Session Name + Job components then show e.g. "notes (vim)".
+local function titleCommand(name)
+  local safe = name:gsub("[^%w%s%-_.]", "") -- keep shell/printf-safe chars
+  return ('/bin/zsh -c "printf \\"\\\\033]1;%s\\\\007\\"; exec $SHELL -l"'):format(safe)
+end
+
 local function create(name)
   run(([[
     tell %s
-      set w to (create window with default profile)
+      set w to (create window with default profile command %s)
       tell current session of w to set variable named "user.hsName" to %s
       activate
-    end tell]]):format(ITERM, quote(name)))
+    end tell]]):format(ITERM, quote(titleCommand(name)), quote(name)))
 end
 
 local function buildChoices(query)

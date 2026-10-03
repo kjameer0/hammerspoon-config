@@ -25,7 +25,7 @@ Pressing an app's key when that app is already in front moves to its next window
 
 The first time you use `a`, macOS asks whether Hammerspoon may control iTerm (Automation permission). Allow it.
 
-To show each window's name on the window itself, set the badge in iTerm: **Preferences → Profiles → (your profile) → General → Badge** = `\(user.hsName)`. Windows without a name don't get a badge.
+To show each window's name in its title bar, turn on both **Session Name** and **Job Name** in iTerm under **Settings → Profiles → (your profile) → General → Title**. Named windows then show titles like `notes (vim)`. To also show the name as a large label inside the window, set **Badge** to `\(user.hsName)`.
 
 ## Layout
 
