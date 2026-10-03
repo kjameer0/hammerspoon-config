@@ -1,5 +1,5 @@
--- modifier + key: focus app (launching if needed); if already frontmost,
--- cycle to its next standard window.
+-- modifier + key: focus the app's most recent window (launching if needed);
+-- if already frontmost, cycle to its next standard window.
 local M = { hotkeys = {} }
 
 local function standardWindows(app)
@@ -30,6 +30,14 @@ local function jump(bundleID)
   local front = hs.application.frontmostApplication()
   if front and front:bundleID() == bundleID then
     cycleWindows(front)
+    return
+  end
+  -- launchOrFocus sends a "reopen" event, which makes apps like iTerm open a
+  -- new window. Only use it when the app isn't running or has no windows.
+  local app = hs.application.get(bundleID)
+  local win = app and (app:mainWindow() or standardWindows(app)[1])
+  if win then
+    win:focus()
   else
     hs.application.launchOrFocusByBundleID(bundleID)
   end
