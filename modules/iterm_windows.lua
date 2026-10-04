@@ -49,9 +49,12 @@ end
 -- iTerm ignores AppleScript-set session names in the title, so the new
 -- window's shell sets its own title (OSC 1) and then execs the login shell.
 -- The title's Session Name + Job components then show e.g. "notes (vim)".
+-- iTerm splits this string itself: single quotes pass through literally, but
+-- nested double quotes and backslashes don't, so the script is single-quoted
+-- and the name is passed as $1.
 local function titleCommand(name)
   local safe = name:gsub("[^%w%s%-_.]", "") -- keep shell/printf-safe chars
-  return ('/bin/zsh -c "printf \\"\\\\033]1;%s\\\\007\\"; exec $SHELL -l"'):format(safe)
+  return ([[/bin/zsh -c 'printf "\033]1;%%s\007" "$1"; exec $SHELL -l' _ '%s']]):format(safe)
 end
 
 local function create(name)
